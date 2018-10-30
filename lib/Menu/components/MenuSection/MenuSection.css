@@ -1,0 +1,31 @@
+/**
+ * MenuSection Section
+ */
+
+@import '../../../variables.css';
+
+.menuSection {
+  
+}
+
+/**
+ * Apply margin on stacked menu sections
+ **/
+.menuSection + .menuSection {
+  margin-top: var(--gutter);
+}
+
+/**
+ * Headline
+ */
+.menuSection__headline {
+  margin-bottom: 0.3rem;
+}
+
+/**
+ * Content
+ */
+.menuSection__content {
+  width: calc(100% + 0.8rem);
+  margin-left: -0.4rem;
+}
