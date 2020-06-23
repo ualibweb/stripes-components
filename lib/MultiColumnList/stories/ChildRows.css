@@ -1,0 +1,17 @@
+.variantsMcl {
+  & [role="row"] {
+    background: none;
+
+    & div {
+      background: none;
+    }
+  }
+
+  & div[role="gridcell"]:not(:empty) {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  & div[role="row"]:first-of-type div[role="gridcell"] {
+    border-top: none;
+  }
+}
