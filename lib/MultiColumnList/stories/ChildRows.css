@@ -3,7 +3,7 @@
     background: none;
 
     & div {
-      background: none;
+      background: none !important;
     }
   }
 
