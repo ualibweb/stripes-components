@@ -16,6 +16,7 @@ const postCssMediaMinMax = require('postcss-media-minmax');
 const postCssColorFunction = require('postcss-color-function');
 
 module.exports = ({ config }) => {
+  config.devtool = 'source-map';
   // Replace Storybook's own CSS config
   config.module.rules[2] = {
     test: /\.css$/,

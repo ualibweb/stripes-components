@@ -102,6 +102,7 @@
     "currency-codes": "^1.5.0",
     "dom-helpers": "^3.2.1",
     "downshift": "^2.0.16",
+    "error-stack-parser": "^2.0.6",
     "hoist-non-react-statics": "^3.1.0",
     "json2csv": "^4.2.1",
     "lodash": "^4.17.4",
@@ -122,6 +123,7 @@
     "react-tether": "^1.0.1",
     "react-transition-group": "^2.2.1",
     "react-virtualized-auto-sizer": "^1.0.2",
+    "stacktrace-gps": "^3.0.4",
     "tai-password-strength": "^1.1.1"
   },
   "peerDependencies": {
