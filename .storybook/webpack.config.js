@@ -84,11 +84,13 @@ module.exports = ({ config }) => {
           ['@babel/plugin-proposal-export-namespace-from'],
           ['@babel/plugin-proposal-numeric-separator'],
           ['@babel/plugin-proposal-throw-expressions'],
-  
+
           // Stage 3
           ['@babel/plugin-syntax-import-meta'],
           ['@babel/plugin-proposal-class-properties', { loose: true }],
-  
+          ['@babel/plugin-proposal-private-methods', { loose: true }],
+
+
           // Others
           ['react-hot-loader/babel'],
         ]
