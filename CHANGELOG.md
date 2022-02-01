@@ -11,6 +11,17 @@
 * Remove default tabIndex from Icon (cause of nested interactive axe errors), treated aria-labelledby appropriately in IconButton. Fixes STCOM-883
 * Make `useClickOutside` click handler work on `capture` event phase. Refs STCOM-895.
 * Interactors should not use dynamic CSS variable names. Refs STCOM-902.
+* Create a Conflict Detection banner. Refs STCOM-889.
+* Scroll MCL to top when a shorter list of content is received. Refs STCOM-907
+* Fix issue with radioButton 'button' not responding to clicks. Fixes STCOM-910.
+* Upgrade `postcss` to v8. Refs STCOM-892.
+* Add a new `valueFormatter` prop to `<MultiSelection>`. Refs STCOM-911.
+* remove `@bigtest/mocha` dependency - using `mocha` instead. Refs STCOM-907.
+* Do not pass `aria-invalid` to any `<button>` elements. Refs STCOM-915.
+* PrevNext buttons return incorrect index. Fixes STCOM-909.
+* Add new `text-start`, `text-end` classNames to `<Layout>` component. Refs STCOM-898.
+* Add `<AdvancedSearch>` component. Refs STCOM-919.
+* Strange arrow appears in select (multiple=true) boxes over scrollbar. Refs STCOM-925.
 
 ## [10.0.0](https://github.com/folio-org/stripes-components/tree/v10.0.0) (2021-09-26)
 [Full Changelog](https://github.com/folio-org/stripes-components/compare/v9.2.0...v10.0.0)
