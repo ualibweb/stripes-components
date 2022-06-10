@@ -73,9 +73,9 @@ To make a pane dismissible, simply supply the `dismissible` prop and a module-le
 ## Props
 Name | type | description | default | required
 --- | --- | --- | --- | ---
-actionMenu | func | Activates the action menu dropdown. Expects a function that returns a component or node. | undefined |
+actionMenu | func | Activates the action menu dropdown. Expects a function that returns a component or node. |  |
 appIcon | element | Render an app icon in the PaneHeader by passing an `<AppIcon>` from stripes-core. |  | undefined
-defaultWidth | string percentage or `"fill"` | Tells the pane the percentage of the paneset that it should occupy. A string percentage (`"25%"`) will render a pane with a width of 25% of its containing element. The string `"fill"` will cause the pane to occupy any remaining space in the paneset after percentage-sized panes are accounted for. |  | &#10004;
+defaultWidth | string percentage or `"fill"` | Tells the pane the percentage of the paneset that it should occupy. A string percentage (`"25%"`) will render a pane with a width of 25% of its containing element. The string `"fill"` will cause the pane to occupy any remaining space in the paneset after percentage-sized panes are accounted for. |  | yes
 centerContent | bool | Wraps the content of the pane in a centered container. This can be useful when rendering forms or preview panes where you don't want the content to take up the entire width of a potentially very wide pane. | |
 dismissible | bool or "last"| If true, pane will render a close (&times;) button in its firstMenu. If "last" is supplied, the button will render in the lastMenu. | false |
 firstMenu | node | Component (typically an instance of `<PaneMenu>`) to render buttons or icons at the beginning of the header. |  |
@@ -85,11 +85,13 @@ lastMenu | node | Component (typically an instance of `<PaneMenu>`) to render bu
 noOverflow | bool | set to true if the Pane content is not expected to scroll. This can cure issues with flashing scrollbars on search result Panes. | false |
 onClose | func | Callback fired when the pane is closed using its dismiss button. |  |
 padContent | bool | Adds default padding to the Pane | true |
+paneSub | string or node | Text or text-rendering elements to appear as the pane sub-header. |  |
 paneTitle | string or node | Text or text-rendering elements to appear in the pane header. |  |
 paneTitleAutoFocus | bool | If this prop is `true`, the pane title will automatically focus when the Pane mounts | |
 paneTitleRef | func | function to set a ref to title element - great for managing focus when new panes are shown/updated. | |
 renderHeader | func | Render a pane header using the render prop pattern. Pass a function that returns a `<PaneHeader>`. Pass `null` to disable the pane header. Read more in the `<PaneHeader>`-readme. | |
-subheader | node | Render a component below the Pane's header. |  | false
+subheader | node | Render a component below the Pane's header. |  | 
+tagName | element | A tag name or custom react element for the pane to be wrapped in | `"section"` | |
 
 ## Pane title
 The `paneTitle` and `paneSub` props contribute to the title contents of the `<Pane>`. `paneTitle` renders the large text - `paneSub` renders smaller text below it. The two are rendered within an `H2` heading to support the accessiblity hierarchy of the UI. The `appIcon` prop renders the supplied `appIcon` next to the text.
