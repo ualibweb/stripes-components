@@ -124,7 +124,7 @@ export const FormattedTime: any;
 export const FormattedUTCDate: any;
 
 // lib/Headline
-export const Headline: any;
+export { default as Headline } from "./lib/Headline";
 
 // lib/Highlighter
 export const Highlighter: any;
