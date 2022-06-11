@@ -16,7 +16,7 @@ Renders a square button with a centered icon.
 ## Props
 Name | Type | Description
 -- | -- | --
-icon | string | Select the icon. You can use any icon that's available in the Icon-component
+icon | string | Select the icon. You can use any icon that's available in the Icon-component or a custom `<svg>`-rendering function, as described in the Icon readme
 className | string | Append your own CSS class
 type | string | Set the type of the button (defaults to "button")
 size | string | Set the size (small 24x24 px / medium 44x44 px)
@@ -26,7 +26,9 @@ onClick | function | Attach an event handler
 href | string | Turns the button into a link (instead of using an onClick handler)
 to | string or object | accepts `to` prop similar to `<Link>` from `react-router` [Details for `<Link>`](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md).
 badgeCount | string / number | Display a small number badge on the IconButton
+badgeColor | `'default'`, `'primary'`, or `'red'` | A custom color for the badge
 id | string | Adds an id attribute to the button
 innerClassName | string | Apply a custom class name to the inner element of the component
 aria-label | string | Adds an aria label to the button. Camel-case prop name `ariaLabel` is also supported.
 autoFocus | bool | If this prop is `true`, component will automatically focus on mount | |
+tabIndex | number | Sets a custom tabIndex on the element
