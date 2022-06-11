@@ -115,10 +115,13 @@ export { default as IconButton } from "./lib/IconButton";
 // lib/MultiSelection
 
 // lib/NavList
+export { default as NavList } from "./lib/NavList";
 
 // lib/NavListItem
+export { default as NavListItem } from "./lib/NavListItem";
 
 // lib/NavListSection
+export { default as NavListSection } from "./lib/NavListSection";
 
 // lib/NoValue
 
