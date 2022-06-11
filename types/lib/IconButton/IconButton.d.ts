@@ -71,15 +71,15 @@ export interface IconButtonBaseProps extends AriaAttributes {
 // these are mutually exclusive (and can be entirely omitted, if needed)
 export interface IconButtonButtonLinkProps {
   /** Set the type of `<button>`.  Incompatible with `href` and `to` */
-  type?: JSX.IntrinsicElements["button"]["type"];
+  type: JSX.IntrinsicElements["button"]["type"];
   /** Adds a link to the button, like a normal <a>.  Incompatible with `type` and `to`. */
-  href?: string;
+  href: string;
   /**
    * Controls where the link should go, like for a `<Link>`.
    * This prop is incompatible with `type` and `href`.
    * @see https://github.com/remix-run/react-router/blob/f9c4a0e8ec022545b2679d381dc41652f1694804/docs/components/link.md
    */
-  to?: History.LocationDescriptor;
+  to: History.LocationDescriptor;
 }
 
 // badgeColor may not be specified without badgeCount
