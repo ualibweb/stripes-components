@@ -19,7 +19,7 @@ export const AutoSuggest: any;
 export const Avatar: any;
 
 // lib/Badge
-export const Badge: any;
+export { default as Badge } from "./lib/Badge";
 
 // lib/Button
 export const Button: any;
@@ -134,10 +134,10 @@ export const HotKeys: any;
 export const FocusTrap: any;
 
 // lib/Icon
-export const Icon: any;
+export { default as Icon } from "./lib/Icon";
 
 // lib/IconButton
-export const IconButton: any;
+export { default as IconButton } from "./lib/IconButton";
 
 // lib/InfoPopover
 export const InfoPopover: any;
@@ -231,7 +231,7 @@ export const PaneFooter: any;
 export const PaneHeader: any;
 
 // lib/PaneHeaderIconButton
-export const PaneHeaderIconButton: any;
+export { default as PaneHeaderIconButton } from "./lib/PaneHeaderIconButton";
 
 // lib/PaneMenu
 export const PaneMenu: any;
