@@ -10,13 +10,13 @@ import { HeadlineProps } from "../Headline/Headline";
 
 export interface NavListSectionProps extends AriaAttributes {
   /** The link currently being displayed */
-  activeLink: History.LocationDescriptor | string;
+  activeLink?: History.LocationDescriptor | string;
   /** {@link NavListItem}s to display */
   children: ReactNode;
   /** Adds custom class(es) to the section */
   className?: string;
   /** The label to display inside a {@link Headline} */
-  label: HeadlineProps["children"];
+  label?: HeadlineProps["children"];
   /** If the items should alternate colors */
   striped?: boolean;
   /** The tag to render for the {@link Headline} */
