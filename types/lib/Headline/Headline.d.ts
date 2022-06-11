@@ -1,13 +1,11 @@
-import React, {
-  FunctionComponent,
-  forwardRef,
-  ReactNode,
+import {
   ForwardRefExoticComponent,
   PropsWithoutRef,
+  ReactNode,
   RefAttributes,
 } from "react";
 
-interface HeadlineProps {
+export interface HeadlineProps {
   /** If the headline should have display: block */
   block?: boolean;
   /**
