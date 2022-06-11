@@ -1,11 +1,12 @@
 import {
+  AriaAttributes,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
 } from "react";
 
-export interface HeadlineProps {
+export interface HeadlineProps extends AriaAttributes {
   /** If the headline should have display: block */
   block?: boolean;
   /**
