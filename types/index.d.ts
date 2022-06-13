@@ -10,8 +10,10 @@
 export { default as Badge } from "./lib/Badge";
 
 // lib/Button
+export { default as Button } from "./lib/Button";
 
 // lib/ButtonGroup
+export { default as ButtonGroup } from "./lib/ButtonGroup";
 
 // lib/Callout
 
