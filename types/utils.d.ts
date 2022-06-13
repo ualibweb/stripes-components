@@ -36,7 +36,21 @@ export type RequireExactlyOne<
 }[KeysType] &
   Omit<ObjectType, KeysType>;
 
+/**
+ * Creates a type that either accepts one of the properties, or none of them
+ * (at most one).  This combines {@link AllOrNone} and {@link RequireExactlyOne}
+ * The caveat with `RequireExactlyOne` is that TypeScript doesn't always know
+ * at compile time every key that will exist at runtime. Therefore `RequireExactlyOne`
+ * can't do anything to prevent extra keys it doesn't know about.
+ */
 export type RequireOneOrNone<
   ObjectType,
   KeysType extends keyof ObjectType = keyof ObjectType
 > = AllOrNone<RequireExactlyOne<ObjectType, KeysType>>;
+
+/**
+ * Make key(s) optional from a given type `T`.  Useful if you want to extend an
+ * existing interface but provide defaults (or some other case where a prop is
+ * no longer required)
+ */
+export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;

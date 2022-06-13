@@ -36,10 +36,13 @@ export { default as ButtonGroup } from "./lib/ButtonGroup";
 // lib/DateRangeWrapper
 
 // lib/Dropdown
+export { Dropdown, UncontrolledDropdown } from "./lib/Dropdown";
 
 // lib/DropdownButton
+export const DropdownButton: any;
 
 // lib/DropdownMenu
+export const DropdownMenu: any;
 
 // lib/Editor
 
@@ -99,6 +102,7 @@ export { default as IconButton } from "./lib/IconButton";
 // lib/List
 
 // lib/Loading
+export { Loading /* , LoadingPane, LoadingView */ } from "./lib/Loading";
 
 // lib/MenuItem
 
@@ -128,23 +132,31 @@ export { default as NavListSection } from "./lib/NavListSection";
 // lib/NoValue
 
 // lib/Pane
+export { default as Pane } from "./lib/Pane";
 
 // lib/PaneBackLink
+export { default as PaneBackLink } from "./lib/PaneBackLink";
 
 // lib/PaneCloseLink
+export { default as PaneCloseLink } from "./lib/PaneCloseLink";
 
 // lib/PaneFooter
+export { default as PaneFooter } from "./lib/PaneFooter";
 
 // lib/PaneHeader
+export { default as PaneHeader } from "./lib/PaneHeader";
 
 // lib/PaneHeaderIconButton
 export { default as PaneHeaderIconButton } from "./lib/PaneHeaderIconButton";
 
 // lib/PaneMenu
+export { default as PaneMenu } from "./lib/PaneMenu";
 
 // lib/Paneset
+export { default as Paneset } from "./lib/Paneset";
 
 // lib/PaneSubheader
+export { default as PaneSubheader } from "./lib/PaneSubheader";
 
 // lib/PasswordStrength
 
@@ -215,33 +227,6 @@ export const OptionSegment: FunctionComponent<
     searchTerm?: string;
   } & ({ children: ReactNode } | { innerText: string })
 >;
-export class Loading extends Component<{}> {}
-export class Pane extends Component<{
-  actionMenu?: Function;
-  actionMenuAutoFocus?: boolean;
-  appIcon?: ReactNode; // TODO: explicitly require an <AppIcon> once stripes-core specifies typings
-  centerContent?: boolean;
-  children?: ReactNode;
-  defaultWidth: `${number}%` | "fill";
-  dismissible?: boolean | "last";
-  firstMenu?: ReactNode;
-  fluidContentWidth?: boolean;
-  footer?: ReactNode;
-  height?: string;
-  id?: string;
-  lastMenu?: ReactNode;
-  noOverflow?: boolean;
-  onClose?: Function;
-  onMount?: Function;
-  padContent?: boolean;
-  paneSub?: ReactNode;
-  paneTitle?: ReactNode;
-  paneTitleRef?: ReactNode;
-  renderHeader?: Function;
-  subheader?: ReactNode;
-  tagName?: ElementType;
-  transition?: string;
-}> {}
 
 export class MultiSelection<OptionType = { label: string }> extends Component<{
   input: FieldInputProps<OptionType[], HTMLElement>;
