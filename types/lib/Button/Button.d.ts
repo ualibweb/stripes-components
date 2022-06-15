@@ -3,6 +3,7 @@ import {
   ForwardRefExoticComponent,
   MouseEventHandler,
   PropsWithoutRef,
+  ReactNode,
   RefAttributes,
 } from 'react';
 import { LinkProps } from 'react-router-dom';
@@ -22,7 +23,7 @@ export interface ButtonBaseProps extends AriaAttributes {
   /** Sets the style of the button */
   buttonStyle?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
   /** The button for the label */
-  children: string;
+  children: ReactNode;
   /** Forces the button to 100% width */
   fullWidth: boolean;
   /** Remove the margin from the bottom */

@@ -1,4 +1,13 @@
 // lib/Accordion
+export {
+  Accordion,
+  AccordionSet,
+  AccordionStatus,
+  DefaultAccordionHeader,
+  FilterAccordionHeader,
+  ExpandAllButton,
+  expandAllFunction,
+} from './lib/Accordion';
 
 // lib/AdvancedSearch
 
