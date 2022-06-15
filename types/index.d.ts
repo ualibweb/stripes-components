@@ -36,13 +36,13 @@ export { default as ButtonGroup } from "./lib/ButtonGroup";
 // lib/DateRangeWrapper
 
 // lib/Dropdown
-export { Dropdown, UncontrolledDropdown } from "./lib/Dropdown";
+export { Dropdown, UncontrolledDropdown } from './lib/Dropdown';
 
 // lib/DropdownButton
-export const DropdownButton: any;
+export { default as DropdownButton } from './lib/DropdownButton';
 
 // lib/DropdownMenu
-export const DropdownMenu: any;
+export { default as DropdownMenu } from './lib/DropdownMenu';
 
 // lib/Editor
 
