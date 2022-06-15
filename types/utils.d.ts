@@ -51,7 +51,8 @@ export type RequireExactlyOne<
 export type RequireOneOrNone<
   ObjectType,
   KeysType extends keyof ObjectType = keyof ObjectType
-> = AllOrNone<RequireExactlyOne<ObjectType, KeysType>>;
+> = Omit<ObjectType, KeysType> &
+  AllOrNone<RequireExactlyOne<Pick<ObjectType, KeysType>, KeysType>>;
 
 /**
  * Make key(s) optional from a given type `T`.  Useful if you want to extend an
