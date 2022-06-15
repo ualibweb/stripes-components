@@ -4,14 +4,14 @@ import {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-} from "react";
+} from 'react';
 
 export interface NavListProps extends AriaAttributes {
   /**
    * Specify an accessible label for the icon
    * @deprecated use `aria-label` instead
    */
-  ariaLabel?: AriaAttributes["aria-label"];
+  ariaLabel?: AriaAttributes['aria-label'];
   /** The contents of the nav list */
   children: ReactNode;
   /** Adds custom class(es) to the item */

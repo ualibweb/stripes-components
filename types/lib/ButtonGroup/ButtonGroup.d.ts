@@ -3,7 +3,7 @@ import {
   ElementType,
   FunctionComponent,
   ReactNode,
-} from "react";
+} from 'react';
 
 export interface ButtonGroupProps extends AriaAttributes {
   /** Add a custom CSS class to the button group */

@@ -1,6 +1,6 @@
-import { FunctionComponent } from "react";
-import { Optional } from "../../utils";
-import { LoadingPaneProps } from "./LoadingPane";
+import { FunctionComponent } from 'react';
+import { LoadingPaneProps } from './LoadingPane';
+import { PanesetProps } from '../Paneset/Paneset';
 
 export type LoadingViewProps = LoadingPaneProps & {
   panesetProps: PanesetProps;

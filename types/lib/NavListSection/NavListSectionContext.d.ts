@@ -1,8 +1,8 @@
-import { Context } from "react";
-import * as History from "history";
+import { Context } from 'react';
+import { LinkProps } from 'react-router-dom';
 
 export interface NavListSectionContextContents {
-  activeLink: History.LocationDescriptor | string;
+  activeLink: LinkProps['to'] | string;
   striped: boolean;
 }
 

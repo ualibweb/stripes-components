@@ -1,12 +1,13 @@
-import { FunctionComponent } from "react";
-import { Optional } from "../../utils";
+import { FunctionComponent } from 'react';
+import { Optional } from '../../utils';
+import { PaneProps } from '../Pane/Pane';
 
 // The pane's children are replaced with a spinner so the prop should not be
 // available.  Additionally, defaultWidth is specified by default (`fill`) so
 // is no longer required
 export type LoadingPaneProps = Optional<
-  Omit<PaneProps, "children">,
-  "defaultWidth"
+  Omit<PaneProps, 'children'>,
+  'defaultWidth'
 >;
 
 /**

@@ -1,1 +1,1 @@
-export { default } from "./PaneHeaderIconButton";
+export { default } from './PaneHeaderIconButton';

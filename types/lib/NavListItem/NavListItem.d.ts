@@ -1,4 +1,3 @@
-import * as History from "history";
 import {
   AriaAttributes,
   ForwardRefExoticComponent,
@@ -6,8 +5,9 @@ import {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-} from "react";
-import { RequireOneOrNone } from "../../utils";
+} from 'react';
+import { LinkProps } from 'react-router-dom';
+import { RequireOneOrNone } from '../../utils';
 
 export interface NavListItemBaseProps extends AriaAttributes {
   /** What should be displayed for this nav item */
@@ -25,9 +25,10 @@ export interface NavListItemInteractiveProps {
   /**
    * Controls where the link should go, like for a `<Link>`.
    * This prop is incompatible with `type` and `href`.
-   * @see https://github.com/remix-run/react-router/blob/f9c4a0e8ec022545b2679d381dc41652f1694804/docs/components/link.md
+   * @see
+   * https://github.com/remix-run/react-router/blob/f9c4a0e8ec022545b2679d381dc41652f1694804/docs/components/link.md
    */
-  to: History.LocationDescriptor;
+  to: LinkProps['to'];
 }
 
 export type NavListItemProps = NavListItemBaseProps &

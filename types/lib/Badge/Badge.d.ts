@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from 'react';
 
 export interface BadgeProps {
   /** What should be displayed in the badge */
@@ -6,9 +6,9 @@ export interface BadgeProps {
   /** Adds a custom class to the badge */
   className?: string;
   /** Sets the color of the badge */
-  color?: "default" | "primary" | "red";
+  color?: 'default' | 'primary' | 'red';
   /** The size of the badge */
-  size?: "small" | "medium";
+  size?: 'small' | 'medium';
 }
 
 /**

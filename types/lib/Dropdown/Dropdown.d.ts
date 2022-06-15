@@ -1,4 +1,4 @@
-import Popper from "popper.js";
+import Popper from 'popper.js';
 import React, {
   AriaAttributes,
   Component,
@@ -7,9 +7,9 @@ import React, {
   KeyboardEventHandler,
   ReactNode,
   RefObject,
-} from "react";
-import { AllOrNone } from "../../utils";
-import { ButtonProps } from "../Button/Button";
+} from 'react';
+import { AllOrNone } from '../../utils';
+import { ButtonProps } from '../Button/Button';
 
 export interface DropdownBaseProps extends AriaAttributes {
   /** Adds additional classes to the wrapping element */
@@ -68,27 +68,25 @@ export interface DropdownTriggerCustomProps {
   }) => ReactNode;
 }
 
+export interface DropdownMenuFunction {
+  (props: {
+    open: boolean;
+    onToggle: () => void;
+    keyHandler?: KeyboardEventHandler;
+  }): ReactNode;
+}
+
 export interface DropdownMenuChildrenProps {
   /**
    * The dropdown's menu/contents, as children.
    * A custom function may also be passed here
    */
-  children:
-    | ReactNode
-    | ((args: {
-        open: boolean;
-        onToggle: Function;
-        keyHandler?: KeyboardEventHandler;
-      }) => ReactNode);
+  children: ReactNode | DropdownMenuFunction;
 }
 
 export interface DropdownMenuPropFunctionProps {
   /** A custom function to render the menu/contents of the dropdown  */
-  renderMenu: (props: {
-    open: boolean;
-    onToggle: (e: Event) => void;
-    keyHandler?: KeyboardEventHandler;
-  }) => ReactNode;
+  renderMenu: DropdownMenuFunction;
 }
 
 export interface DropdownControlledProps {
@@ -96,7 +94,7 @@ export interface DropdownControlledProps {
    * A function to be called when the dropdown should be toggled
    * (e.g. from the Escape key or a click outside the popper)
    */
-  onToggle: Function;
+  onToggle: () => void;
   /** If the dropdown should currently be open */
   open: boolean;
 }

@@ -3,7 +3,7 @@ import {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-} from "react";
+} from 'react';
 
 export interface HeadlineProps {
   /** If the headline should have display: block */
@@ -23,21 +23,21 @@ export interface HeadlineProps {
   flex?: boolean;
   /** Controls the bottom margin of the headline, corresponds to the size prop */
   margin?:
-    | "xx-small"
-    | "x-small"
-    | "small"
-    | "medium"
-    | "large"
-    | "x-large"
-    | "xx-large"
-    | "none"
-    | "";
+    | 'xx-small'
+    | 'x-small'
+    | 'small'
+    | 'medium'
+    | 'large'
+    | 'x-large'
+    | 'xx-large'
+    | 'none'
+    | '';
   /** The size of the headline */
-  size?: "small" | "medium" | "large" | "x-large" | "xx-large";
+  size?: 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
   /** The tag to render the headline as */
-  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "legend";
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div' | 'legend';
   /** Control the font-weight of the headline */
-  weight?: "regular" | "medium" | "bold" | "black";
+  weight?: 'regular' | 'medium' | 'bold' | 'black';
 }
 
 /**
