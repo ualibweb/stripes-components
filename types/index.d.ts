@@ -175,6 +175,7 @@ export { default as PaneSubheader } from './lib/PaneSubheader';
 // lib/Select
 
 // lib/Selection
+export { default as Selection, OptionSegment } from './lib/Selection';
 
 // lib/Spinner
 
@@ -211,13 +212,6 @@ export { default as PaneSubheader } from './lib/PaneSubheader';
 // util/omitProps
 
 // util/RootCloseWrapper
-
-// either children or innerText must be provided
-// export const OptionSegment: FunctionComponent<
-//   {
-//     searchTerm?: string;
-//   } & ({ children: ReactNode } | { innerText: string })
-// >;
 
 // export class MultiSelection<OptionType = { label: string }> extends Component<{
 //   input: FieldInputProps<OptionType[], HTMLElement>;
