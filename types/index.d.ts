@@ -96,6 +96,7 @@ export { default as IconButton } from './lib/IconButton';
 // lib/LayoutBox
 
 // lib/LayoutGrid
+export { Grid, Row, Col } from './lib/LayoutGrid';
 
 // lib/LayoutHeader
 
