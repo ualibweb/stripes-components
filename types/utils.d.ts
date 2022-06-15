@@ -1,3 +1,5 @@
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
+
 /**
  * All of the properties in `T` must be present, or none of them.
  * Useful for JSX properties that rely on each other
@@ -89,3 +91,11 @@ export type RenameByT<T, RenameMap> = {
       : never
     : K]: K extends keyof T ? T[K] : never;
 };
+
+/**
+ * Interface for input and meta props, as required by `react-final-form`
+ */
+export interface ReactFinalFormField<ValueType> {
+  input: FieldInputProps<ValueType, Element>;
+  meta: FieldMetaState<ValueType>;
+}

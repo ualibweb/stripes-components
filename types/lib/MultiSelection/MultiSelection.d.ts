@@ -1,7 +1,6 @@
 import Popper from 'popper.js';
 import { Component, FocusEventHandler, ReactNode } from 'react';
-import { WrappedFieldProps } from 'redux-form';
-import { RequireOneOrNone } from '../../utils';
+import { ReactFinalFormField, RequireOneOrNone } from '../../utils';
 
 /**
  * The default option type to be used, contains a label and potentially a value
@@ -28,7 +27,7 @@ export interface MultiSelectionActionItemProps<
 
 export interface MultiSelectionBaseProps<
   OptionType = MultiSelectionDefaultOptionType
-> extends WrappedFieldProps {
+> extends ReactFinalFormField<OptionType[]> {
   /**
    * Custom actions, such as a "New" row
    * @see https://github.com/folio-org/stripes-components/tree/master/lib/MultiSelection#actions
