@@ -59,3 +59,32 @@ export type RequireOneOrNone<
  * no longer required)
  */
 export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
+/**
+ * Rename types in `T` based on the object `RenameMap`.
+ * @example
+ * type Foo = {
+ *   a: number;
+ *   b: string;
+ *   c: SomethingElse;
+ * }
+ * type Bar = RenameByT<Foo, {
+ *   a: "x";
+ *   b: "y";
+ *   notPresent: "baz";
+ * }>;
+ * // Bar: {
+ * //   x: number;
+ * //   y: string;
+ * //   c: SomethingElse;
+ * // }
+ * @see https://stackoverflow.com/a/71912306/
+ */
+//
+export type RenameByT<T, RenameMap> = {
+  [K in keyof T as K extends keyof RenameMap
+    ? RenameMap[K] extends string
+      ? RenameMap[K]
+      : never
+    : K]: K extends keyof T ? T[K] : never;
+};
