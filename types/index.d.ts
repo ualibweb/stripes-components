@@ -7,13 +7,13 @@
 // lib/Avatar
 
 // lib/Badge
-export { default as Badge } from "./lib/Badge";
+export { default as Badge } from './lib/Badge';
 
 // lib/Button
-export { default as Button } from "./lib/Button";
+export { default as Button } from './lib/Button';
 
 // lib/ButtonGroup
-export { default as ButtonGroup } from "./lib/ButtonGroup";
+export { default as ButtonGroup } from './lib/ButtonGroup';
 
 // lib/Callout
 
@@ -69,17 +69,17 @@ export { default as DropdownMenu } from './lib/DropdownMenu';
 // lib/FormattedUTCDate
 
 // lib/Headline
-export { default as Headline } from "./lib/Headline";
+export { default as Headline } from './lib/Headline';
 
 // lib/Highlighter
 
 // lib/HotKeys
 
 // lib/Icon
-export { default as Icon } from "./lib/Icon";
+export { default as Icon } from './lib/Icon';
 
 // lib/IconButton
-export { default as IconButton } from "./lib/IconButton";
+export { default as IconButton } from './lib/IconButton';
 
 // lib/InfoPopover
 
@@ -102,7 +102,7 @@ export { default as IconButton } from "./lib/IconButton";
 // lib/List
 
 // lib/Loading
-export { Loading /* , LoadingPane, LoadingView */ } from "./lib/Loading";
+export { Loading, LoadingPane, LoadingView } from './lib/Loading';
 
 // lib/MenuItem
 
@@ -121,42 +121,42 @@ export { Loading /* , LoadingPane, LoadingView */ } from "./lib/Loading";
 // lib/MultiSelection
 
 // lib/NavList
-export { default as NavList } from "./lib/NavList";
+export { default as NavList } from './lib/NavList';
 
 // lib/NavListItem
-export { default as NavListItem } from "./lib/NavListItem";
+export { default as NavListItem } from './lib/NavListItem';
 
 // lib/NavListSection
-export { default as NavListSection } from "./lib/NavListSection";
+export { default as NavListSection } from './lib/NavListSection';
 
 // lib/NoValue
 
 // lib/Pane
-export { default as Pane } from "./lib/Pane";
+export { default as Pane } from './lib/Pane';
 
 // lib/PaneBackLink
-export { default as PaneBackLink } from "./lib/PaneBackLink";
+export { default as PaneBackLink } from './lib/PaneBackLink';
 
 // lib/PaneCloseLink
-export { default as PaneCloseLink } from "./lib/PaneCloseLink";
+export { default as PaneCloseLink } from './lib/PaneCloseLink';
 
 // lib/PaneFooter
-export { default as PaneFooter } from "./lib/PaneFooter";
+export { default as PaneFooter } from './lib/PaneFooter';
 
 // lib/PaneHeader
-export { default as PaneHeader } from "./lib/PaneHeader";
+export { default as PaneHeader } from './lib/PaneHeader';
 
 // lib/PaneHeaderIconButton
-export { default as PaneHeaderIconButton } from "./lib/PaneHeaderIconButton";
+export { default as PaneHeaderIconButton } from './lib/PaneHeaderIconButton';
 
 // lib/PaneMenu
-export { default as PaneMenu } from "./lib/PaneMenu";
+export { default as PaneMenu } from './lib/PaneMenu';
 
 // lib/Paneset
-export { default as Paneset } from "./lib/Paneset";
+export { default as Paneset } from './lib/Paneset';
 
 // lib/PaneSubheader
-export { default as PaneSubheader } from "./lib/PaneSubheader";
+export { default as PaneSubheader } from './lib/PaneSubheader';
 
 // lib/PasswordStrength
 
@@ -212,55 +212,46 @@ export { default as PaneSubheader } from "./lib/PaneSubheader";
 
 // util/RootCloseWrapper
 
-import {
-  Component,
-  CSSProperties,
-  ElementType,
-  FunctionComponent,
-  ReactNode,
-} from "react";
-import { FieldInputProps, FieldMetaState } from "react-final-form";
-
 // either children or innerText must be provided
-export const OptionSegment: FunctionComponent<
-  {
-    searchTerm?: string;
-  } & ({ children: ReactNode } | { innerText: string })
->;
+// export const OptionSegment: FunctionComponent<
+//   {
+//     searchTerm?: string;
+//   } & ({ children: ReactNode } | { innerText: string })
+// >;
 
-export class MultiSelection<OptionType = { label: string }> extends Component<{
-  input: FieldInputProps<OptionType[], HTMLElement>;
-  meta: FieldMetaState<OptionType[]>;
+// export class MultiSelection<OptionType = { label: string }> extends Component<{
+//   input: FieldInputProps<OptionType[], HTMLElement>;
+//   meta: FieldMetaState<OptionType[]>;
 
-  actions?: { onSelect: Function }[];
-  ariaLabelledBy?: string;
-  asyncFiltering?: boolean;
-  autoFocus?: boolean;
-  backspaceDeletes?: boolean;
-  dataOptions?: OptionType[];
-  dirty?: boolean;
-  disabled?: boolean;
-  emptyMessage?: string;
-  error?: ReactNode;
-  filter?: (
-    filterText: string | undefined,
-    list: OptionType[]
-  ) => { renderedItems: OptionType[]; exactMatch?: boolean };
-  formatter?: (option: OptionType, searchTerm: string | undefined) => ReactNode;
-  id?: string;
-  isValid?: boolean;
-  itemToString?: (option: OptionType) => string;
-  label?: ReactNode;
-  maxHeight?: number;
-  modifiers?: object;
-  onBlur?: Function;
-  onChange?: Function;
-  onRemove?: Function;
-  placeholder?: string;
-  renderToOverlay?: boolean;
-  required?: boolean;
-  validationEnabled?: boolean;
-  value?: OptionType[];
-  valueFormatter?: (option: OptionType) => ReactNode;
-  warning?: ReactNode;
-}> {}
+//   actions?: { onSelect: Function }[];
+//   ariaLabelledBy?: string;
+//   asyncFiltering?: boolean;
+//   autoFocus?: boolean;
+//   backspaceDeletes?: boolean;
+//   dataOptions?: OptionType[];
+//   dirty?: boolean;
+//   disabled?: boolean;
+//   emptyMessage?: string;
+//   error?: ReactNode;
+//   filter?: (
+//     filterText: string | undefined,
+//     list: OptionType[]
+//   ) => { renderedItems: OptionType[]; exactMatch?: boolean };
+//   formatter?: (option: OptionType, searchTerm: string | undefined) => ReactNode;
+//   id?: string;
+//   isValid?: boolean;
+//   itemToString?: (option: OptionType) => string;
+//   label?: ReactNode;
+//   maxHeight?: number;
+//   modifiers?: object;
+//   onBlur?: Function;
+//   onChange?: Function;
+//   onRemove?: Function;
+//   placeholder?: string;
+//   renderToOverlay?: boolean;
+//   required?: boolean;
+//   validationEnabled?: boolean;
+//   value?: OptionType[];
+//   valueFormatter?: (option: OptionType) => ReactNode;
+//   warning?: ReactNode;
+// }> {}

@@ -1,89 +1,147 @@
-import * as History from "history";
 import {
   AriaAttributes,
+  Component,
   CSSProperties,
-  ForwardRefExoticComponent,
-  MouseEventHandler,
-  PropsWithoutRef,
+  ElementType,
   ReactNode,
-  RefAttributes,
-} from "react";
-import { AllOrNone, RequireOneOrNone } from "../../utils";
-import { BadgeProps } from "../Badge/Badge";
-import { IconType } from "../Icon/Icon";
-
-export class Pane extends Component<{
-  actionMenu?: Function;
-  actionMenuAutoFocus?: boolean;
-  appIcon?: ReactNode; // TODO: explicitly require an <AppIcon> once stripes-core specifies typings
-  centerContent?: boolean;
-  children?: ReactNode;
-  defaultWidth: `${number}%` | "fill";
-  dismissible?: boolean | "last";
-  firstMenu?: ReactNode;
-  fluidContentWidth?: boolean;
-  footer?: ReactNode;
-  height?: string;
-  id?: string;
-  lastMenu?: ReactNode;
-  noOverflow?: boolean;
-  onClose?: Function;
-  onMount?: Function;
-  padContent?: boolean;
-  paneSub?: ReactNode;
-  paneTitle?: ReactNode;
-  paneTitleRef?: ReactNode;
-  renderHeader?: Function;
-  subheader?: ReactNode;
-  tagName?: ElementType;
-  transition?: string;
-}> {}
+  RefObject,
+} from 'react';
+import { Optional } from '../../utils';
+import { PaneHeaderDefaultProps } from '../PaneHeader/PaneHeader';
 
 export interface PaneProps extends AriaAttributes {
-  /** Activates the action menu dropdown; function must return a node/component (probably a `<MenuSection>`) */
-  actionMenu?: () => ReactNode;
-}
-
-// these are mutually exclusive (and can be entirely omitted, if needed)
-export interface ButtonButtonLinkProps {
-  /** Set the type of `<button>`.  Incompatible with `href` and `to` */
-  type: JSX.IntrinsicElements["button"]["type"];
-  /** Adds a link to the button, like a normal <a>.  Incompatible with `type` and `to`. */
-  href: string;
   /**
-   * Controls where the link should go, like for a `<Link>`.
-   * This prop is incompatible with `type` and `href`.
-   * @see https://github.com/remix-run/react-router/blob/f9c4a0e8ec022545b2679d381dc41652f1694804/docs/components/link.md
+   * Activates the action menu dropdown; function must return a node/component
+   * (probably a `<MenuSection>`)
+   * @deprecated use {@link renderHeader} instead
    */
-  to: History.LocationDescriptor;
-}
-
-// badgeColor may not be specified without badgeCount
-export interface ButtonBadgeProps {
+  actionMenu?: PaneHeaderDefaultProps['actionMenu'];
   /**
-   * Sets the badge color
-   * @see badgeCount for the required content of the badge
+   * Adds an icon to the header.  Expects an `<AppIcon>` from `stripes-core`.
+   * @deprecated use {@link renderHeader} instead
    */
-  badgeColor?: BadgeProps["color"];
-  /** Adds a badge with the given contents */
-  badgeCount: BadgeProps["children"];
+  appIcon?: PaneHeaderDefaultProps['appIcon'];
+  /**
+   * Wraps the contents in a centered container -- useful in large panes where
+   * you do not want the content to fill the pane's entire width
+   */
+  centerContent?: boolean;
+  /** The pane's contents */
+  children: ReactNode;
+  /**
+   * The percentage of the paneset that should be occupied,
+   * or `fill` to use all available space
+   */
+  defaultWidth: `${number}%` | 'fill';
+  /**
+   * If a close (x) button should be rendered in the pane's header:
+   * - A `false` value will not render a button
+   * - A `true` value will render a button in the firstMenu (left side in ltr languages)
+   * - A `"last"` value will render a button in the lastMenu (right side in ltr languages)
+   * @deprecated use {@link renderHeader} instead
+   */
+  dismissible?: PaneHeaderDefaultProps['dismissible'];
+  /**
+   * Component (probably a `<PaneMenu>`) to render at the beginning of the header
+   * (top left in ltr languages)
+   * @deprecated use {@link renderHeader} instead
+   */
+  firstMenu?: PaneHeaderDefaultProps['firstMenu'];
+  /** If true, removes the default min-width applied to the pane's contents */
+  fluidContentWidth?: boolean;
+  /** A node (likely a <PaneFooter>) to render at the bottom of the pane */
+  footer?: ReactNode;
+  /** The height of the pane, not to exceed `100vh` (used for the universal FOLIO header) */
+  height?: CSSProperties['height'];
+  /** Specify an ID to use for the Pane */
+  id?: string;
+  /**
+   * Component (probably a `<PaneMenu>`) to render at the end of the header
+   * (top right in ltr languages)
+   * @deprecated use {@link renderHeader} instead
+   */
+  lastMenu?: PaneHeaderDefaultProps['lastMenu'];
+  /**
+   * If the pane is not expected to scroll.  If true, scrollbars will be
+   * hidden, fixing some issues in result panes and the like.
+   */
+  noOverflow?: boolean;
+  /**
+   * Callback for when the pane is closed using its close button (see `dismissible` prop)
+   * @deprecated use {@link renderHeader} instead
+   */
+  onClose?: () => void;
+  /** Callback for when the pane is mounted */
+  onMount?: (args: {
+    paneRef: RefObject<HTMLElement>;
+    paneTitleRef: RefObject<HTMLDivElement>;
+  }) => void;
+  /** If the pane's contents should be padded */
+  padContent?: boolean;
+  /**
+   * Add a subtitle to the pane, as a node or string (recommended).
+   * @deprecated use {@link renderHeader} instead
+   */
+  paneSub?: PaneHeaderDefaultProps['paneSub'];
+  /**
+   * Add a title to the pane, as a node or string (recommended).
+   * This will be enclosed with a `<h2>` for accessibility
+   * @deprecated use {@link renderHeader} instead
+   */
+  paneTitle?: PaneHeaderDefaultProps['paneTitle'];
+  /**
+   * A reference to the header of the pane
+   * @deprecated use {@link renderHeader} instead
+   */
+  paneTitleRef?: PaneHeaderDefaultProps['paneTitleRef'];
+  /**
+   * A function to render a `<PaneHeader>`.  This is the preferred method
+   * over providing props to the `<Pane>` itself.  The parameters are props
+   * that were passed to this pane but belong to the header, so should
+   * probably be spread to your custom `<PaneHeader>` before your props.
+   * This method will eventually be the only supported method.
+   */
+  renderHeader?: (
+    renderProps: Pick<
+      Optional<PaneHeaderDefaultProps, keyof PaneHeaderDefaultProps>,
+      | 'paneTitle'
+      | 'paneTitleRef'
+      | 'paneSub'
+      | 'appIcon'
+      | 'firstMenu'
+      | 'lastMenu'
+      | 'actionMenu'
+      | 'dismissible'
+      | 'onClose'
+      | 'id'
+    >
+  ) => ReactNode;
+  /** Render something immediately beneath the main pane header (likely a <PaneSubheader>) */
+  subheader?: ReactNode;
+  /** Use a custom element for the root element of the pane */
+  tagName?: ElementType;
+  /** Set the transition of the pane */
+  transition?: 'none' | 'slide';
 }
-
-export type ButtonProps = ButtonBaseProps &
-  RequireOneOrNone<ButtonButtonLinkProps, "type" | "href" | "to"> &
-  AllOrNone<ButtonBadgeProps>;
 
 /**
- * Renders a given button
+ * A pane, central to FOLIO module layout.
  * @example
- * <Button
- *   icon="comment"
- *   badgeCount="3"
- *   onClick={...}
- * />
+ * <Pane
+ *   defaultWidth="20%"
+ *   paneTitle="Filters"
+ * >
+ *   Pane Content
+ * </Pane>
+ * <Pane
+ *   defaultWidth="fill"
+ *   padContent={false} // prevent horizontal scrolling
+ *   noOverflow         // at the pane level (useful in case the rendered content, like a results list, handles this.)
+ *   // Render a custom header using the "renderHeader"-prop if needed
+ *   renderHeader={renderProps => <PaneHeader {...renderProps} paneTitle="Search Results" />}
+ * >
+ *   Pane Content
+ * </Pane>
  */
-export const Button: ForwardRefExoticComponent<
-  PropsWithoutRef<ButtonProps> &
-    RefAttributes<HTMLAnchorElement | HTMLButtonElement>
->;
-export default Button;
+export class Pane extends Component<PaneProps> {}
+export default Pane;
