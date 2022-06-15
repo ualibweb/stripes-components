@@ -119,6 +119,7 @@ export { Loading, LoadingPane, LoadingView } from './lib/Loading';
 // lib/MultiColumnList
 
 // lib/MultiSelection
+export { default as MultiSelection } from './lib/MultiSelection';
 
 // lib/NavList
 export { default as NavList } from './lib/NavList';
@@ -212,40 +213,3 @@ export { default as Selection, OptionSegment } from './lib/Selection';
 // util/omitProps
 
 // util/RootCloseWrapper
-
-// export class MultiSelection<OptionType = { label: string }> extends Component<{
-//   input: FieldInputProps<OptionType[], HTMLElement>;
-//   meta: FieldMetaState<OptionType[]>;
-
-//   actions?: { onSelect: Function }[];
-//   ariaLabelledBy?: string;
-//   asyncFiltering?: boolean;
-//   autoFocus?: boolean;
-//   backspaceDeletes?: boolean;
-//   dataOptions?: OptionType[];
-//   dirty?: boolean;
-//   disabled?: boolean;
-//   emptyMessage?: string;
-//   error?: ReactNode;
-//   filter?: (
-//     filterText: string | undefined,
-//     list: OptionType[]
-//   ) => { renderedItems: OptionType[]; exactMatch?: boolean };
-//   formatter?: (option: OptionType, searchTerm: string | undefined) => ReactNode;
-//   id?: string;
-//   isValid?: boolean;
-//   itemToString?: (option: OptionType) => string;
-//   label?: ReactNode;
-//   maxHeight?: number;
-//   modifiers?: object;
-//   onBlur?: Function;
-//   onChange?: Function;
-//   onRemove?: Function;
-//   placeholder?: string;
-//   renderToOverlay?: boolean;
-//   required?: boolean;
-//   validationEnabled?: boolean;
-//   value?: OptionType[];
-//   valueFormatter?: (option: OptionType) => ReactNode;
-//   warning?: ReactNode;
-// }> {}
