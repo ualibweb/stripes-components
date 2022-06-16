@@ -10,7 +10,7 @@ export interface ListProps<ItemType> {
   /** Adds a custom class to the list */
   listClass?: string;
   /** Sets the list's style */
-  color?: 'default' | 'bullets';
+  listStyle?: 'default' | 'bullets';
   /** Removes margin from the bottom of the list */
   marginBottom0?: boolean;
 }
