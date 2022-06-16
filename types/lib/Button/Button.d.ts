@@ -21,11 +21,17 @@ export interface ButtonBaseProps extends AriaAttributes {
   /** Add a custom CSS class to the button */
   buttonClass?: string;
   /** Sets the style of the button */
-  buttonStyle?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+  buttonStyle?:
+    | 'default'
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'dropdownItem';
   /** The button for the label */
   children: ReactNode;
   /** Forces the button to 100% width */
-  fullWidth: boolean;
+  fullWidth?: boolean;
   /** Remove the margin from the bottom */
   marginBottom0?: boolean;
   /** Handle an `onClick` event */
