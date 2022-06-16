@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import { IntlShape } from 'react-intl';
 import { DefaultAccordionHeaderProps } from './DefaultAccordionHeader';
 
 export interface FilterAccordionHeaderProps
@@ -8,8 +7,6 @@ export interface FilterAccordionHeaderProps
   disabled?: boolean;
   /** If the filter field should display a clear (x) button */
   displayClearButton?: boolean;
-  /** Something from `react-intl` that can localize text */
-  intl: IntlShape;
   /** A name for the header */
   name?: string;
   /** A callback for when the filter has been cleared */
