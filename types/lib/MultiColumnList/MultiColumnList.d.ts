@@ -194,6 +194,28 @@ export type MultiColumnListProps<
   MultiColumnListSpecialPagingTypes &
   MultiColumnListMarkProps;
 
+/**
+ * Renders an array of data objects as a table where each object is a row and each property of the
+ * objects is a column. Capable of virtualizing rows in large collections of data.
+ * @example
+ * const catalogResults = [
+ *     {title:'Microbiology Today', author:'James Edward'},
+ *     {title:'Orange Book', author:'Philip Ramos'},
+ * ]
+ * <MultiColumnList contentData={catalogResults} />
+ * @example
+ * <MultiColumnList
+ *   contentData={...}
+ *   visibleColumns={['actionDate', 'action', 'dueDate', 'itemStatus', 'source']}
+ *   columnMapping={{
+ *     action: <FormattedMessage id="ui-users.loans.columns.action" />,
+ *     actionDate: <FormattedMessage id="ui-users.loans.columns.actionDate" />,
+ *     dueDate: <FormattedMessage id="ui-users.loans.columns.dueDate" />,
+ *     itemStatus: <FormattedMessage id="ui-users.loans.columns.itemStatus" />,
+ *     source: <FormattedMessage id="ui-users.loans.columns.source" />,
+ *   }}
+ * />
+ */
 export class MultiColumnList<
   DataShape,
   OmittedColumns extends string = ''
