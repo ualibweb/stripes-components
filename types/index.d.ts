@@ -102,6 +102,7 @@ export { default as IconButton } from './lib/IconButton';
 // lib/Layer
 
 // lib/Layout
+export { default as Layout } from './lib/Layout';
 
 // lib/LayoutBox
 
