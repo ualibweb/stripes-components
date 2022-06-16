@@ -91,11 +91,3 @@ export type RenameByT<T, RenameMap> = {
       : never
     : K]: K extends keyof T ? T[K] : never;
 };
-
-/**
- * Interface for input and meta props, as required by `react-final-form`
- */
-export interface ReactFinalFormField<ValueType> {
-  input: FieldInputProps<ValueType, Element>;
-  meta: FieldMetaState<ValueType>;
-}

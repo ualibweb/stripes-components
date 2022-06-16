@@ -41,6 +41,7 @@ export { default as ButtonGroup } from './lib/ButtonGroup';
 // lib/CurrencySelect
 
 // lib/Datepicker
+export { default as Datepicker } from './lib/Datepicker';
 
 // lib/DateRangeWrapper
 
@@ -198,6 +199,7 @@ export { default as Selection, OptionSegment } from './lib/Selection';
 // lib/TextArea
 
 // lib/TextField
+export { default as TextField } from './lib/TextField';
 
 // lib/TextLink
 

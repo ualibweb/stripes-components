@@ -1,6 +1,7 @@
 import Popper from 'popper.js';
 import { Component, FocusEventHandler, ReactNode } from 'react';
-import { ReactFinalFormField, RequireOneOrNone } from '../../utils';
+import { FieldRenderProps } from 'react-final-form';
+import { RequireOneOrNone } from '../../utils';
 
 /**
  * The default option type to be used, contains a label and potentially a value
@@ -27,7 +28,7 @@ export interface MultiSelectionActionItemProps<
 
 export interface MultiSelectionBaseProps<
   OptionType = MultiSelectionDefaultOptionType
-> extends ReactFinalFormField<OptionType[]> {
+> {
   /**
    * Custom actions, such as a "New" row
    * @see https://github.com/folio-org/stripes-components/tree/master/lib/MultiSelection#actions
@@ -101,11 +102,35 @@ export interface MultiSelectionBaseProps<
   warning?: ReactNode;
 }
 
-export type MultiSelectionProps<OptionType> = RequireOneOrNone<
-  MultiSelectionBaseProps<OptionType>,
-  'valueFormatter' | 'formatter'
+export type MultiSelectionProps<OptionType = MultiSelectionDefaultOptionType> =
+  RequireOneOrNone<
+    MultiSelectionBaseProps<OptionType>,
+    'valueFormatter' | 'formatter'
+  >;
+
+export type MultiSelectionFieldRenderProps<OptionType> = FieldRenderProps<
+  OptionType[]
 >;
 
+/**
+ * Multiple selection control, allowing filtering of options
+ * @example
+ * const optionList = [
+ *   { value: 'test0', label: 'Option 0' },
+ *   { value: 'test1', label: 'Option 1' },
+ *   { value: 'test2', label: 'Option 2' },
+ *   // ...
+ * ];
+ *
+ * <MultiSelection
+ *     label="my multiselect"
+ *     id="my-multiselect"
+ *     dataOptions={optionList}
+ * />
+ */
 export default class MultiSelection<
-  OptionType = MultiSelectionDefaultOptionType
-> extends Component<MultiSelectionProps<OptionType>> {}
+  OptionType = MultiSelectionDefaultOptionType,
+  AdditionalProps extends
+    | MultiSelectionProps<OptionType>
+    | MultiSelectionFieldRenderProps<OptionType> = MultiSelectionProps<OptionType>
+> extends Component<MultiSelectionProps<OptionType> & AdditionalProps> {}
