@@ -24,32 +24,40 @@ export interface PositionObject {
 
 export type PagingType = 'click' | 'none' | 'prev-next' | 'scroll';
 
-export interface MultiColumnListBaseProps<DataShape> {
+export interface MultiColumnListBaseProps<
+  DataShape,
+  OmittedColumns extends string
+> {
   /**
    * Adds a prefix to column header IDs (otherwise MCLs with conflicting column
    * header names in the same view could cause issues)
    */
   columnIdPrefix?: string;
   /** Maps data fields to labels for column headers */
-  columnMapping?: Record<keyof DataShape, ReactNode>;
+  columnMapping?: Record<keyof Omit<DataShape, OmittedColumns>, ReactNode>;
   /** If a column should show overflow */
-  columnOverflow?: Record<keyof DataShape, boolean>;
+  columnOverflow?: Record<keyof Omit<DataShape, OmittedColumns>, boolean>;
   /** Set widths for columns, either as direct widths or min/max pixels */
-  columnWidths?: Record<keyof DataShape, ColumnWidth>;
+  columnWidths?: Record<keyof Omit<DataShape, OmittedColumns>, ColumnWidth>;
   /** A ref to the MCL's container */
   containerRef?: RefObject<HTMLDivElement>;
   /** The list's data */
   contentData: DataShape[];
   /** Custom functions that render the nodes for each column */
-  formatter?: Record<keyof DataShape, (item: DataShape) => ReactNode>;
+  formatter?: Record<
+    keyof Omit<DataShape, OmittedColumns>,
+    (item: DataShape) => ReactNode
+  >;
   /** Replaces the default classes with the result of this function */
   getCellClass?: (
     defaultClasses: string,
     rowData: DataShape,
-    header: keyof DataShape
+    header: keyof Omit<DataShape, OmittedColumns>
   ) => string;
   /** Adds additional classes to the default header's classes */
-  getHeaderCellClass?: (columnName: keyof DataShape) => string;
+  getHeaderCellClass?: (
+    columnName: keyof Omit<DataShape, OmittedColumns>
+  ) => string;
   /** Replaces the default row container classes with the result of this function */
   getRowContainerClass?: (defaultClasses: string) => string;
   /** Adds horizontal margin to the rows and header */
@@ -69,7 +77,7 @@ export interface MultiColumnListBaseProps<DataShape> {
   /** Override the default id for the MCL */
   id?: string;
   /** Function to pass the instance to */
-  instanceRef?: (instance: MultiColumnList<DataShape>) => void;
+  instanceRef?: (instance: MultiColumnList<DataShape, OmittedColumns>) => void;
   /** If rows should display as hoverable/clickable */
   interactive?: boolean;
   /** The message to display if the MCL is empty */
@@ -98,7 +106,7 @@ export interface MultiColumnListBaseProps<DataShape> {
   // TODO: add default formatter types/extension here
   rowFormatter?: unknown;
   /** Keys in the data that should not be rendered */
-  rowMetadata?: (keyof DataShape)[];
+  rowMetadata?: OmittedColumns[];
   /**
    * A function that can force a row to re-render by changing its return.  This return is passed
    * directly to a pure row's props, so any change will cause a re-render.  The actual value does
@@ -128,7 +136,7 @@ export interface MultiColumnListBaseProps<DataShape> {
   /** For large tables, do not render all rows into the DOM at once */
   virtualize?: boolean;
   /** A list of columns that should be rendered, takes precedence over {@link rowMetadata} */
-  visibleColumns?: (keyof DataShape)[];
+  visibleColumns?: (keyof Omit<DataShape, OmittedColumns>)[];
   /** Set the MCL's width */
   width?: number;
   /** If cells should wrap within themselves */
@@ -142,11 +150,16 @@ export type MultiColumnListHeightProps = RequireOneOrNone<{
   height?: CSSProperties['height'];
 }>;
 
-export type MultiColumnListHeaderClickProps<DataShape> = AllOrNone<{
-  nonInteractiveHeaders?: (keyof DataShape)[];
+export type MultiColumnListHeaderClickProps<
+  DataShape,
+  OmittedColumns extends string
+> = AllOrNone<{
+  /** Columns to disallow clicking */
+  nonInteractiveHeaders?: (keyof Omit<DataShape, OmittedColumns>)[];
+  /** Callback for when a column is clicked */
   onHeaderClick: (
     e: MouseEvent,
-    meta: { name: string; alias: ReactNode }
+    meta: { name: keyof Omit<DataShape, OmittedColumns>; alias: ReactNode }
   ) => void;
 }>;
 
@@ -172,14 +185,17 @@ export type MultiColumnListMarkProps = AllOrNone<{
   onMarkReset?: () => void;
 }>;
 
-export type MultiColumnListProps<DataShape> =
-  MultiColumnListBaseProps<DataShape> &
-    MultiColumnListHeightProps &
-    MultiColumnListHeaderClickProps<DataShape> &
-    MultiColumnListSpecialPagingTypes &
-    MultiColumnListMarkProps;
+export type MultiColumnListProps<
+  DataShape,
+  OmittedColumns extends string
+> = MultiColumnListBaseProps<DataShape, OmittedColumns> &
+  MultiColumnListHeightProps &
+  MultiColumnListHeaderClickProps<DataShape, OmittedColumns> &
+  MultiColumnListSpecialPagingTypes &
+  MultiColumnListMarkProps;
 
-export class MultiColumnList<DataShape> extends Component<
-  MultiColumnListProps<DataShape>
-> {}
+export class MultiColumnList<
+  DataShape,
+  OmittedColumns extends string = ''
+> extends Component<MultiColumnListProps<DataShape, OmittedColumns>> {}
 export default MultiColumnList;
