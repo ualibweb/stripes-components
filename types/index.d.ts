@@ -118,6 +118,7 @@ export { Loading, LoadingPane, LoadingView } from './lib/Loading';
 // lib/MenuItem
 
 // lib/MenuSection
+export { default as MenuSection } from './lib/MenuSection';
 
 // lib/MessageBanner
 
