@@ -129,6 +129,7 @@ export { default as MenuSection } from './lib/MenuSection';
 // lib/ModalFooter
 
 // lib/MultiColumnList
+export { default as MultiColumnList } from './lib/MultiColumnList';
 
 // lib/MultiSelection
 export { default as MultiSelection } from './lib/MultiSelection';
