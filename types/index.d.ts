@@ -110,6 +110,7 @@ export { Grid, Row, Col } from './lib/LayoutGrid';
 // lib/LayoutHeader
 
 // lib/List
+export { default as List } from './lib/List';
 
 // lib/Loading
 export { Loading, LoadingPane, LoadingView } from './lib/Loading';
