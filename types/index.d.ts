@@ -84,6 +84,7 @@ export { default as Headline } from './lib/Headline';
 // lib/Highlighter
 
 // lib/HotKeys
+export { HotKeys } from './lib/HotKeys';
 
 // lib/Icon
 export { default as Icon } from './lib/Icon';
