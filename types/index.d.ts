@@ -206,6 +206,7 @@ export { default as TextField } from './lib/TextField';
 // lib/TextLink
 
 // lib/Timepicker
+export { default as Timepicker } from './lib/Timepicker';
 
 // lib/Tooltip
 

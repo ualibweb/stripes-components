@@ -52,7 +52,7 @@ export interface DatepickerBaseProps extends AriaAttributes {
   required?: boolean;
   /** Additional message to be read when the field is focused */
   screenReaderMessage?: boolean;
-  /** If the calendar should start of opened */
+  /** If the calendar should start off opened */
   showCalendar?: boolean;
   /** Override the default timezone */
   timeZone?: string;
