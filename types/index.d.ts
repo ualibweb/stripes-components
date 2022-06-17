@@ -189,6 +189,7 @@ export { default as PaneSubheader } from './lib/PaneSubheader';
 // lib/SearchField
 
 // lib/Select
+export { default as Select } from './lib/Select';
 
 // lib/Selection
 export { default as Selection, OptionSegment } from './lib/Selection';
