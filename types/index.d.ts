@@ -59,6 +59,7 @@ export { default as DropdownMenu } from './lib/DropdownMenu';
 // lib/EmptyMessage
 
 // lib/ErrorBoundary
+export { default as ErrorBoundary } from './lib/ErrorBoundary';
 
 // lib/ErrorModal
 
