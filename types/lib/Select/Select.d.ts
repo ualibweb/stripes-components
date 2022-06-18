@@ -1,4 +1,4 @@
-import { AriaAttributes, Component, ReactNode, RefObject } from 'react';
+import { Component, ReactNode, RefObject } from 'react';
 import { FieldRenderProps } from 'react-final-form';
 import { RequireExactlyOne } from '../../utils';
 
@@ -11,7 +11,7 @@ export interface OptionType<ValueType = never> {
   disabled?: boolean;
 }
 
-export interface SelectBaseProps<ValueType> extends AriaAttributes {
+export interface SelectBaseProps<ValueType> {
   /** If the field should auto-focus on mount */
   autoFocus?: boolean;
   /**
@@ -56,7 +56,7 @@ export interface SelectBaseProps<ValueType> extends AriaAttributes {
   /** If the field being valid should add styles */
   validStylesEnabled?: boolean;
   /** The selected object */
-  value?: OptionType<ValueType>;
+  value?: ValueType;
   /** Inline feedback for the user indicating a validation warning */
   warning?: ReactNode;
 }
@@ -64,7 +64,8 @@ export interface SelectBaseProps<ValueType> extends AriaAttributes {
 export type SelectProps<ValueType> = RequireExactlyOne<
   SelectBaseProps<ValueType>,
   'children' | 'dataOptions'
->;
+> &
+  JSX.IntrinsicElements['select'];
 
 export type SelectFieldRenderProps<ValueType> = FieldRenderProps<
   OptionType<ValueType>
