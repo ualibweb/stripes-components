@@ -57,7 +57,8 @@ export interface ButtonLinkProps {
 }
 
 export type ButtonProps = ButtonBaseProps &
-  RequireOneOrNone<ButtonLinkProps, 'type' | 'href' | 'to'>;
+  RequireOneOrNone<ButtonLinkProps, 'type' | 'href' | 'to'> &
+  (JSX.IntrinsicElements['button'] | JSX.IntrinsicElements['a']);
 
 /**
  * Renders a given button
