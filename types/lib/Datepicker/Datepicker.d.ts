@@ -13,7 +13,7 @@ export interface DatepickerBaseProps extends AriaAttributes {
   /** If the field should auto-focus on mount */
   autoFocus?: boolean;
   /** How backend dates should be parsed, e.g. `"ISO 8601"` */
-  backendDateSchema?: string;
+  backendDateStandard?: string;
   /** How the date should be formatted/localized, e.g. `YYYY.MM.DD` */
   dateFormat?: string;
   /** Disables the input field */
@@ -58,6 +58,8 @@ export interface DatepickerBaseProps extends AriaAttributes {
   timeZone?: string;
   /** If focusing the text field should open the calendar popup */
   useFocus?: boolean;
+  /** If the field is being used within a final-form or similar */
+  useInput?: boolean;
   /** Render to the global overlay, if the dropdown may be cut off due to some containing elements's overflow */
   usePortal?: boolean;
   /** The field's value */
