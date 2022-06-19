@@ -72,19 +72,19 @@ export type SelectFieldRenderProps<ValueType> = FieldRenderProps<
 >;
 
 /**
- * Multiple selection control, allowing filtering of options
+ * Selection control, allowing choice of option(s)
  * @example
- * const optionList = [
- *   { value: 'test0', label: 'Option 0' },
- *   { value: 'test1', label: 'Option 1' },
- *   { value: 'test2', label: 'Option 2' },
- *   // ...
- * ];
- *
- * <MultiSelection
- *     label="my multiselect"
- *     id="my-multiselect"
- *     dataOptions={optionList}
+ * <Select
+ *   dataOptions={[
+ *     {
+ *       value: "foo",
+ *       label: "Foo",
+ *     },
+ *     {
+ *       value: "bar",
+ *       label: "Foo",
+ *     }
+ *   ]}
  * />
  */
 export default class Select<
