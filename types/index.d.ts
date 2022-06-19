@@ -224,6 +224,10 @@ export { default as Timepicker } from './lib/Timepicker';
 // util/currencies
 
 // util/dateTimeUtils
+export {
+  getLocaleDateFormat,
+  getLocalizedTimeFormatInfo,
+} from './utils/dateTimeUtils';
 
 // util/getFocusableElements
 
