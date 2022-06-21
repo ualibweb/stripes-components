@@ -1,6 +1,9 @@
 import {
   Component,
   CSSProperties,
+  FunctionComponent,
+  KeyboardEventHandler,
+  MouseEventHandler,
   ReactNode,
   RefObject,
   UIEventHandler,
@@ -23,6 +26,23 @@ export interface PositionObject {
 }
 
 export type PagingType = 'click' | 'none' | 'prev-next' | 'scroll';
+
+export interface MultiColumnListRowFormatterProps<DataShape> {
+  cells: ReactNode[];
+  labelStrings:
+    | string[]
+    | ((props: MultiColumnListRowFormatterProps<DataShape>) => string[]);
+  rowClass: string;
+  rowData: DataShape;
+  rowIndex: number;
+  rowProps: {
+    onClick: MouseEventHandler;
+    onKeyDown: KeyboardEventHandler;
+    style: CSSProperties;
+    'data-row-inner': number;
+  };
+  rowWidth: number;
+}
 
 export interface MultiColumnListBaseProps<
   DataShape,
@@ -104,7 +124,7 @@ export interface MultiColumnListBaseProps<
   pagingType?: PagingType;
   /** A custom formatter for an entire row */
   // TODO: add default formatter types/extension here
-  rowFormatter?: unknown;
+  rowFormatter?: FunctionComponent<MultiColumnListRowFormatterProps<DataShape>>;
   /** Keys in the data that should not be rendered */
   rowMetadata?: OmittedColumns[];
   /**
