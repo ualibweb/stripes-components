@@ -94,7 +94,8 @@ export interface IconButtonBadgeProps {
 
 export type IconButtonProps = IconButtonBaseProps &
   RequireOneOrNone<IconButtonButtonLinkProps, 'type' | 'href' | 'to'> &
-  AllOrNone<IconButtonBadgeProps>;
+  AllOrNone<IconButtonBadgeProps> &
+  (JSX.IntrinsicElements['a'] | JSX.IntrinsicElements['button']);
 
 /**
  * Renders a given icon

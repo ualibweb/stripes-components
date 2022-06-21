@@ -25,7 +25,7 @@ export interface DatepickerBaseProps extends AriaAttributes {
   /** Adds a custom ID to the control */
   id?: string;
   /** Ref to the internal text field */
-  inputRef?: RefObject<HTMLInputElement>;
+  inputRef?: RefObject<HTMLInputElement> | ((el: HTMLInputElement) => void);
   /** Label the datepicker */
   label?: ReactNode;
   /** Set the locale for use */
