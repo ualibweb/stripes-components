@@ -12,7 +12,7 @@ export interface PaneFooterBaseProps {
   /** Sets the class name of the main footer element */
   className?: string;
   /** Overrides the component/tag used for the footer */
-  element: Component;
+  element?: Component;
 }
 
 export interface PaneFooterChildrenContentsProps {
@@ -61,7 +61,7 @@ export type PaneFooterProps = PaneFooterBaseProps &
  *   </div>
  * </PaneFooter>
  */
-export const PaneBackLink: ForwardRefExoticComponent<
+export const PaneFooter: ForwardRefExoticComponent<
   PropsWithoutRef<PaneFooterProps> & RefAttributes<HTMLDivElement>
 >;
-export default PaneBackLink;
+export default PaneFooter;
