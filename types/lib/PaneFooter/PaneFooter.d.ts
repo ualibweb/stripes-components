@@ -25,7 +25,12 @@ export type PaneFooterBuiltinContentsProps = RenameByT<
   {
     className: 'innerClassName';
   }
->;
+> & {
+  /** Render at the start (left in LTR languages) of the footer */
+  renderStart?: ReactNode;
+  /** Render at the end (right in LTR languages) of the footer */
+  renderEnd?: ReactNode;
+};
 
 export type PaneFooterProps = PaneFooterBaseProps &
   (PaneFooterChildrenContentsProps | PaneFooterBuiltinContentsProps);
