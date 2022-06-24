@@ -140,15 +140,10 @@ export interface MultiColumnListBaseProps<
    * @deprecated use {@link isSelected} instead
    */
   selectedRow?: DataShape;
-  /**
-   * Which way a sorted column was sorted
-   * @deprecated use {@link sortedOrder}
-   */
+  /** Which way a sorted column is sorted */
   sortDirection?: 'ascending' | 'descending';
   /** The column being styled as sorted */
-  sortedColumn?: string;
-  /** Which way a sorted column was sorted */
-  sortedOrder?: 'ascending' | 'descending';
+  sortedColumn?: keyof Omit<DataShape, OmittedColumns>;
   /** If alternating rows should have different colors, resulting in a striped appearance */
   striped?: boolean;
   /** The total number of rows, for virtualization or pagination */
