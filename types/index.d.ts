@@ -33,6 +33,7 @@ export { default as ButtonGroup } from './lib/ButtonGroup';
 // lib/Commander
 
 // lib/ConfirmationModal
+export { default as ConfirmationModal } from './lib/ConfirmationModal';
 
 // lib/ConflictDetectionBanner
 
