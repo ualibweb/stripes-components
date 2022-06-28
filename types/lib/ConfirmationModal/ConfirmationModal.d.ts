@@ -1,4 +1,5 @@
 import { ElementType, FunctionComponent, ReactNode } from 'react';
+import { ButtonProps } from '../Button/Button';
 
 export interface ConfirmationModalProps {
   /** the top <h1> of the modal; doubles as the aria-label */
@@ -17,10 +18,13 @@ export interface ConfirmationModalProps {
   onCancel: () => void;
   /** Override the tag wrapping the modal's `message` */
   bodyTag?: ElementType;
+  /** Change the style of the confirm button */
+  buttonStyle?: ButtonProps['buttonStyle'];
+  /** Change the style of the cancel button */
+  cancelButtonStyle?: ButtonProps['buttonStyle'];
 }
 
 /**
- *
  * A basic confirmation modal with props to support a heading (required),
  * a brief message, and customizable 'cancel' and 'submit' action labeling.
  * @example

@@ -131,8 +131,10 @@ export { default as MenuSection } from './lib/MenuSection';
 // lib/MetaSection
 
 // lib/Modal
+export { default as Modal } from './lib/Modal';
 
 // lib/ModalFooter
+export { default as ModalFooter } from './lib/ModalFooter';
 
 // lib/MultiColumnList
 export { default as MultiColumnList } from './lib/MultiColumnList';
