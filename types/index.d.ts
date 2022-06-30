@@ -29,6 +29,7 @@ export { default as ButtonGroup } from './lib/ButtonGroup';
 // lib/Card
 
 // lib/Checkbox
+export { default as Checkbox } from './lib/Checkbox';
 
 // lib/Commander
 
