@@ -6,7 +6,7 @@ import { RequireExactlyOne } from '../../utils';
  * The default option type to be used, contains a label, potentially a value, and an option to disable
  */
 export interface OptionType<ValueType = never> {
-  label: ReactNode;
+  label: string;
   value: ValueType;
   disabled?: boolean;
 }
