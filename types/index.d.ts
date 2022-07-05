@@ -100,6 +100,7 @@ export { default as IconButton } from './lib/IconButton';
 // lib/KeyboardShortcutsModal
 
 // lib/KeyValue
+export { default as KeyValue } from './lib/KeyValue';
 
 // lib/Label
 
