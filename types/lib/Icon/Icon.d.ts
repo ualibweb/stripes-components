@@ -3,6 +3,7 @@ import {
   ComponentType,
   ForwardRefExoticComponent,
   PropsWithoutRef,
+  ReactNode,
   RefAttributes,
 } from 'react';
 
@@ -127,7 +128,7 @@ export interface IconPropsWithoutChildren extends AriaAttributes {
 // either children exists (and iconPosition optionally does), or neither.
 export interface IconChildrenProps {
   /** Adds content next to the icon, useful for adding a label */
-  children: string;
+  children: ReactNode;
   /** Sets the position of the icon, for use with children */
   iconPosition?: 'start' | 'end';
 }

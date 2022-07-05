@@ -21,7 +21,7 @@ export interface ModalProps extends AriaAttributes {
   /** A custom ID for the modal's div */
   id?: string;
   /** A title for the top label */
-  label: string;
+  label: ReactNode;
   /** Callback for when the modal should be closed */
   onClose?: () => void;
   /** Callback for when the modal opens */
