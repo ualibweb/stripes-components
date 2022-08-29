@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 import uniqueId from 'lodash/uniqueId';
 import css from './Pane.css';
 import PaneHeader from '../PaneHeader';
@@ -45,9 +45,11 @@ const propTypes = {
     updateHandle: PropTypes.func,
   }),
   subheader: PropTypes.node,
-  tagName: PropTypes.string,
+  tagName: PropTypes.elementType,
   transition: PropTypes.string
 };
+
+export type PaneProps = InferProps<typeof propTypes>;
 
 const defaultProps = {
   centerContent: false,
@@ -57,8 +59,19 @@ const defaultProps = {
   renderHeader: (props) => <PaneHeader {...props} />
 };
 
-class Pane extends React.Component {
-  constructor(props) {
+class Pane extends React.Component<PaneProps, any> {
+  id: any;
+  resizeId: any;
+  contentMinWidth: any;
+  _isMounted: any;
+  _lastFocusedChild: any;
+  el: any;
+  animationCallbackID: any;
+
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
+
+  constructor(props: PaneProps) {
     super(props);
 
     let initStyle = {};
@@ -85,7 +98,7 @@ class Pane extends React.Component {
      * (will be removed later)
      */
     const { appIcon } = this.props;
-    if (typeof appIcon === 'object' && typeof appIcon.app === 'string') {
+    if (typeof appIcon === 'object' && typeof (appIcon as any).app === 'string') {
       console.warn(`
         [DEPRECATION] Pass an <AppIcon> (from stripes-core)
         to the appIcon-prop on <Pane> instead of an object.
@@ -245,7 +258,7 @@ class Pane extends React.Component {
         <div
           key={`${this.id}-content`}
           id={`${this.id}-content`}
-          tabIndex="-1"
+          tabIndex={-1}
           className={this.getContentClass()}
           onFocus={this.setLatestFocused}
         >
@@ -256,8 +269,5 @@ class Pane extends React.Component {
     );
   }
 }
-
-Pane.propTypes = propTypes;
-Pane.defaultProps = defaultProps;
 
 export default withPaneset(withResize(Pane));
