@@ -270,4 +270,4 @@ class Pane extends React.Component<PaneProps, any> {
   }
 }
 
-export default withPaneset(withResize(Pane));
+export default withPaneset<PaneProps>(withResize<PaneProps>(Pane));
